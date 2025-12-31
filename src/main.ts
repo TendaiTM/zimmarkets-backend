@@ -74,6 +74,7 @@ async function bootstrap() {
       description: 'WebSocket authentication token',
     }, 'WebSocket-auth')
     .addServer('http://localhost:3004/api/v1', 'Local Development with API prefix')
+    .addServer('https://zimmarkets.vercel.app/api/v1', 'Production API prefix')
     .addTag('auth', 'Authentication endpoints')
     .addTag('users', 'User management')
     .addTag('listings', 'Product listings')
