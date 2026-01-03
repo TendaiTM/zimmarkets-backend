@@ -102,15 +102,7 @@ async function bootstrap() {
       showRequestDuration: true,
       displayRequestDuration: true,
       tryItOutEnabled: true,
-      urls: [
-        {
-          url: '/api/v1/swagger-json',
-          name: 'API Spec'
-        }
-      ],
-      defaultModelsExpandDepth: -1,
-      defaultModelExpandDepth: 1,
-      displayOperationId: false,
+    
     },
   });
 
