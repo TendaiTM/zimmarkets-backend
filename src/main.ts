@@ -19,7 +19,7 @@ async function bootstrap() {
   // CORS
   app.enableCors({
     origin: [
-      'https://zimmarkets.vercel.app', 
+      'https://zimmarkets-22fq.vercel.app', 
       'http://localhost:3000',
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
