@@ -18,7 +18,7 @@ async function bootstrap() {
 
   // CORS
   app.enableCors({
-    origin: ['https://your-frontend-domain.com', 'http://localhost:3000',],
+    origin: ['https://zimmarkets.vercel.app/', 'http://localhost:3000',],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
      allowedHeaders: [
