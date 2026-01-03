@@ -100,10 +100,18 @@ async function bootstrap() {
       docExpansion: 'none',
       filter: true,
       showRequestDuration: true,
-      displayRequestDuration: true,
-      tryItOutEnabled: true,
-    
     },
+    customCss: `
+      .swagger-ui .topbar { display: none; }
+      .swagger-ui .information-container { background: #fafafa; padding: 20px; }
+    `,
+    customJs: [
+      'https://unpkg.com/swagger-ui-dist@5.9.0/swagger-ui-bundle.js',
+      'https://unpkg.com/swagger-ui-dist@5.9.0/swagger-ui-standalone-preset.js'
+    ],
+    customCssUrl: [
+      'https://unpkg.com/swagger-ui-dist@5.9.0/swagger-ui.css'
+    ],
   });
 
 
@@ -112,7 +120,7 @@ async function bootstrap() {
   await app.listen(port);
   
   console.log(`🚀 Application is running on: http://localhost:${port}`);
-  console.log(`📚 Swagger documentation: http://localhost:${port}/api/docs`);
+  console.log(`📚 Swagger documentation: http://localhost:${port}/docs`);
   console.log(`📊 API Endpoint: http://localhost:${port}/api/v1`);
   console.log(`💬 WebSocket Chat: ws://localhost:${port}/chat`);
   console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
