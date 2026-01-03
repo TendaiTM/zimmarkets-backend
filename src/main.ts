@@ -18,7 +18,10 @@ async function bootstrap() {
 
   // CORS
   app.enableCors({
-    origin: ['https://zimmarkets.vercel.app', 'http://localhost:3000',],
+    origin: [
+      'https://zimmarkets.vercel.app', 
+      'http://localhost:3000',
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
      allowedHeaders: [
@@ -74,7 +77,7 @@ async function bootstrap() {
       description: 'WebSocket authentication token',
     }, 'WebSocket-auth')
     .addServer('http://localhost:3004/api/v1', 'Local Development with API prefix')
-    .addServer('https://zimmarkets.vercel.app/api/v1', 'Production API prefix')
+    .addServer('https://zimmarkets.vercel.app/api/v1', 'Production')
     .addTag('auth', 'Authentication endpoints')
     .addTag('users', 'User management')
     .addTag('listings', 'Product listings')
@@ -88,7 +91,7 @@ async function bootstrap() {
   
   const document = SwaggerModule.createDocument(app, config);
 
-  SwaggerModule.setup('api/docs', app, document, {
+  SwaggerModule.setup('docs', app, document, {
     customSiteTitle: 'ZimMarket API Documentation',
     swaggerOptions: {
       persistAuthorization: true,
@@ -99,6 +102,15 @@ async function bootstrap() {
       showRequestDuration: true,
       displayRequestDuration: true,
       tryItOutEnabled: true,
+      urls: [
+        {
+          url: '/api/v1/swagger-json',
+          name: 'API Spec'
+        }
+      ],
+      defaultModelsExpandDepth: -1,
+      defaultModelExpandDepth: 1,
+      displayOperationId: false,
     },
   });
 
